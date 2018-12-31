@@ -1,4 +1,4 @@
-package com.chen.study.concurrent.concurrent2.singleton;
+package com.chen.study.design.pattern.singleton;
 
 /**
  * 枚举方式 -- 单例模式

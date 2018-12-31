@@ -1,4 +1,4 @@
-package com.chen.study.concurrent.concurrent2.singleton;
+package com.chen.study.design.pattern.singleton;
 
 /**
  * 饿汉式 -- 单例模式

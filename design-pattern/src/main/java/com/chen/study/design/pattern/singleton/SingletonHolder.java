@@ -1,4 +1,4 @@
-package com.chen.study.concurrent.concurrent2.singleton;
+package com.chen.study.design.pattern.singleton;
 
 /**
  * 推荐使用静态内部类实现单例模式
