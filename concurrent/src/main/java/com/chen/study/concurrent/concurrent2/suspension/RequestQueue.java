@@ -1,6 +1,7 @@
 package com.chen.study.concurrent.concurrent2.suspension;
 
-import com.study.demo.util.Is;
+
+import com.chen.common.util.Is;
 
 import java.util.LinkedList;
 

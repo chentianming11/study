@@ -1,6 +1,6 @@
 package com.chen.study.concurrent.concurrent2.observer.thread;
 
-import com.study.demo.util.Is;
+import com.chen.common.util.Is;
 
 import java.util.List;
 

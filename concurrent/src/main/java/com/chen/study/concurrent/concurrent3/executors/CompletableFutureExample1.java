@@ -59,7 +59,10 @@ public class CompletableFutureExample1 {
                         .supplyAsync(() -> get()) // 提交一个异步任务
                         .thenAccept((data) -> display(data)) // 任务完成，处理结果
                         .whenComplete((v, t) -> System.out.println( i + " -> done")) // 每个任务执行完成的回调
+                        .join()
                 );
+
+        System.out.println("全部执行完成");
        Thread.currentThread().join();
 
 
