@@ -19,7 +19,9 @@ public abstract class CaffeineBeverage {
         // ﻿倒进杯子
         pourInCup();
         // ﻿加调料
-        addCondiments();
+       if (customerWantsCondiments()){
+            addCondiments();
+       }
     }
 
     private void boilWater() {
@@ -27,6 +29,10 @@ public abstract class CaffeineBeverage {
     }
     private void pourInCup() {
         System.out.println("把咖啡倒进杯子");
+    }
+
+    boolean customerWantsCondiments(){
+       return true;
     }
 
     /**
