@@ -1,8 +1,9 @@
 package com.chen.spring.action.c2.basebean.xmlconfig.soundsystem.properties;
 
+import com.chen.spring.action.c2.basebean.xmlconfig.soundsystem.CompactDisc;
+
 import java.util.List;
 
-import soundsystem.CompactDisc;
 
 public class BlankDisc implements CompactDisc {
 
