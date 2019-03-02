@@ -1,4 +1,4 @@
-package com.chen.spring.action.c5.web.spittr.config;
+package spittr.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

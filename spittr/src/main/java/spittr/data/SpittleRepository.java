@@ -1,6 +1,7 @@
-package com.chen.spring.action.c5.web.spittr.data;
+package spittr.data;
 
-import com.chen.spring.action.c5.web.spittr.Spittle;
+
+import spittr.Spittle;
 
 import java.util.List;
 

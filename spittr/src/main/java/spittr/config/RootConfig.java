@@ -1,4 +1,4 @@
-package com.chen.spring.action.c5.web.spittr.config;
+package spittr.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -12,7 +12,11 @@ import java.util.regex.Pattern;
 
 @Configuration
 @Import(DataConfig.class)
-@ComponentScan(basePackages={"com.chen.spring.action.c5.web.spittr"},
+
+/**
+ * 排除webConfig的扫描包
+ */
+@ComponentScan(basePackages={"spittr"},
     excludeFilters={
         @Filter(type=FilterType.CUSTOM, value=RootConfig.WebPackage.class)
     })

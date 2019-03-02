@@ -1,4 +1,4 @@
-package com.chen.spring.action.c5.web.spittr;
+package spittr;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

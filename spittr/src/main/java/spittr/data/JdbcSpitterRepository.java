@@ -1,10 +1,10 @@
-package com.chen.spring.action.c5.web.spittr.data;
+package spittr.data;
 
-import com.chen.spring.action.c5.web.spittr.Spitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import spittr.Spitter;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

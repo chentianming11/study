@@ -1,4 +1,4 @@
-package com.chen.spring.action.c5.web.spittr.web;
+package spittr.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,10 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@EnableWebMvc
-@ComponentScan("com.chen.spring.action.c5.web")
+@EnableWebMvc // 启用spring mvc
+@ComponentScan("spittr.web") // 开启组件扫描
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+  /**
+   * 配置jsp视图解析器
+   * @return
+   */
   @Bean
   public ViewResolver viewResolver() {
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -22,12 +26,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     resolver.setSuffix(".jsp");
     return resolver;
   }
-  
+
+  /**
+   * 配置静态资源处理
+   * @param configurer
+   */
   @Override
   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
     configurer.enable();
   }
-  
+
+
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
     // TODO Auto-generated method stub

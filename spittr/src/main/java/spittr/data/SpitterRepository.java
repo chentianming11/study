@@ -1,7 +1,7 @@
-package com.chen.spring.action.c5.web.spittr.data;
+package spittr.data;
 
 
-import com.chen.spring.action.c5.web.spittr.Spitter;
+import spittr.Spitter;
 
 public interface SpitterRepository {
 

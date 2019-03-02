@@ -1,4 +1,4 @@
-package com.chen.spring.action.c5.web.spittr.web;
+package spittr.web;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
