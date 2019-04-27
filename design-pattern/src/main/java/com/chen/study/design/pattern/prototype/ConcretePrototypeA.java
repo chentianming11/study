@@ -56,6 +56,7 @@ public class ConcretePrototypeA implements Cloneable, Serializable {
      * @return
      */
     public ConcretePrototypeA deepCloneWithJSON() {
+
         String jsonString = JSON.toJSONString(this);
         return JSON.parseObject(jsonString, this.getClass());
     }
