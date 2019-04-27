@@ -12,9 +12,9 @@
         <module>design-pattern</module>
         <module>guava</module>
         <module>concurrent</module>
-        <module>http</module>
         <module>spring-action</module>
         <module>redis</module>
+        <module>custom-util</module>
     </modules>
 
 
@@ -44,14 +44,6 @@
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <version>3.2.10</version>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>com.chen</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
