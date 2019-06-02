@@ -1,9 +1,9 @@
 package com.chen.study.guava.eventbus.service;
 
+import com.chen.study.guava.eventbus.event.Request;
+import com.chen.study.guava.eventbus.event.Response;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
-import com.study.demo.guava.eventbus.event.Request;
-import com.study.demo.guava.eventbus.event.Response;
 
 /**
  * @author 陈添明
