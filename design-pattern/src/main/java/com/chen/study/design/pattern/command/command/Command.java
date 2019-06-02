@@ -5,6 +5,7 @@ package com.chen.study.design.pattern.command.command;
  * @date 2019/1/7
  */
 public interface Command {
+
     void execute();
 
     void undo();
