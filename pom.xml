@@ -17,6 +17,7 @@
         <module>custom-util</module>
         <module>classloader</module>
         <module>java8</module>
+        <module>zookeeper</module>
     </modules>
 
 
