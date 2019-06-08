@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -65,5 +66,26 @@ public class TestMultiMaps {
         System.out.println("再将Multimap反转" + invertFrom1);
 
 
+    }
+
+    @Test
+    public void test2() {
+        ArrayList<Employee> employees = new ArrayList<>();
+        ImmutableMap<String, Employee> map = Maps.uniqueIndex(employees, Employee::getName);
+
+        Employee ta = map.get("ta");
+        System.out.println(ta);
+    }
+
+    @Test
+    public void test3() {
+        ArrayList<Employee> employees = new ArrayList<>();
+        employees.add(null);
+        employees.add(null);
+        employees.add(null);
+        System.out.println(employees);
+
+        employees.removeAll(Collections.singleton(null));
+        System.out.println(employees);
     }
 }
