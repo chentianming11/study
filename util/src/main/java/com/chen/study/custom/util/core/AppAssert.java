@@ -1,5 +1,7 @@
-package com.chen.study.custom.util;
+package com.chen.study.custom.util.core;
 
+
+import lombok.experimental.UtilityClass;
 
 import java.util.Date;
 import java.util.Objects;
@@ -10,7 +12,8 @@ import java.util.Objects;
  *
  * @author chenTianMing
  */
-public abstract class AppAssert {
+@UtilityClass
+public class AppAssert {
 
     public static void notNull(Object o, String errorMessage) {
         if (o == null) {

@@ -13,4 +13,11 @@
     <version>1.0-SNAPSHOT</version>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.chen</groupId>
+            <artifactId>util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

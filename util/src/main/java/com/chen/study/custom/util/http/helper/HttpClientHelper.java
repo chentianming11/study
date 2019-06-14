@@ -1,8 +1,9 @@
 package com.chen.study.custom.util.http.helper;
 
 import com.alibaba.fastjson.JSON;
-import com.chen.study.custom.util.AppException;
-import com.chen.study.custom.util.Is;
+import com.chen.study.custom.util.core.AppException;
+import com.chen.study.custom.util.core.Is;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -23,8 +24,9 @@ import java.util.Map;
  * @author 陈添明
  * @date 2018/12/26
  */
+@UtilityClass
 @Log4j2
-public abstract class HttpClientHelper {
+public class HttpClientHelper {
     public static final String UTF_8 = "utf-8";
     public static final String APPLICATION_JSON_VALUE = "application/json";
 

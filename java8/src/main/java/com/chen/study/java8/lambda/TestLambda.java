@@ -1,7 +1,7 @@
 package com.chen.study.java8.lambda;
 
-import com.study.demo.entity.Employee;
-import com.study.demo.java8.MyPredicate;
+import com.chen.study.java8.Employee;
+import com.chen.study.java8.MyPredicate;
 import org.junit.Test;
 
 import java.util.ArrayList;

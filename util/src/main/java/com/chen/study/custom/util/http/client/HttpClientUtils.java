@@ -1,9 +1,10 @@
 package com.chen.study.custom.util.http.client;
 
-import com.chen.study.custom.util.AppException;
+import com.chen.study.custom.util.core.AppException;
 import com.chen.study.custom.util.http.handler.GeneticResponseHandler;
 import com.chen.study.custom.util.http.handler.WriteToOutputStreamResponseHandler;
 import com.chen.study.custom.util.http.helper.HttpClientHelper;
+import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
@@ -25,7 +26,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/12/25
  */
 @Log4j2
-public abstract class HttpClientUtils {
+@UtilityClass
+public class HttpClientUtils {
 
     private static int connectionRequestTimeout = 30_000;
     private static int connectTimeout = 30_000;

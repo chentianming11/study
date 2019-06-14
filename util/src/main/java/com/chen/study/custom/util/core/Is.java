@@ -1,4 +1,4 @@
-package com.chen.study.custom.util;
+package com.chen.study.custom.util.core;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;

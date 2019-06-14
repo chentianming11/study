@@ -1,4 +1,4 @@
-package com.chen.study.custom.util;
+package com.chen.study.custom.util.core;
 
 import lombok.Getter;
 import lombok.Setter;

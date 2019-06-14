@@ -1,7 +1,7 @@
 package com.chen.study.concurrent.concurrent2.suspension;
 
 
-import com.chen.common.util.Is;
+import com.chen.study.custom.util.core.Is;
 
 import java.util.LinkedList;
 

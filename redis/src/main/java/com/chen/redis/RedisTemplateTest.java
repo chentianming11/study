@@ -3,12 +3,8 @@ package com.chen.redis;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +40,7 @@ public class RedisTemplateTest {
         redisTemplate.opsForValue().setIfAbsent("multi1", "multi1");
 
         // 以Map的形式 插入 多个键值对
-        Map<String, String> maps = new HashMap<String, String>();
+        Map<String, String> maps = new HashMap<>();
         maps.put("multi1", "multi1");
         maps.put("multi2", "multi2");
         maps.put("multi3", "multi3");

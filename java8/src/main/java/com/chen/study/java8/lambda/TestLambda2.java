@@ -1,8 +1,8 @@
 package com.chen.study.java8.lambda;
 
-import com.study.demo.entity.Employee;
-import com.study.demo.java8.fun.MyFun;
-import com.study.demo.java8.fun.MyString;
+import com.chen.study.java8.Employee;
+import com.chen.study.java8.fun.MyFun;
+import com.chen.study.java8.fun.MyString;
 import org.junit.Test;
 
 import java.util.Arrays;

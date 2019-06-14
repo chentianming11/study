@@ -14,7 +14,7 @@
         <module>concurrent</module>
         <module>spring-action</module>
         <module>redis</module>
-        <module>custom-util</module>
+        <module>util</module>
         <module>classloader</module>
         <module>java8</module>
         <module>zookeeper</module>
@@ -23,56 +23,11 @@
 
 
     <dependencies>
-
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.10</version>
-        </dependency>
-
-        <!--util start-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.6-jre</version>
-        </dependency>
-        <dependency>
-            <groupId>com.shekhargulati</groupId>
-            <artifactId>strman</artifactId>
-            <version>0.4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-            <version>1.9.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.10</version>
         </dependency>
 
         <dependency>

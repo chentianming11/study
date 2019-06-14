@@ -155,11 +155,13 @@ public class TestDate {
     /**
      * 与遗留代码转换
      */
+    @Test
     public void test8() {
 
         // Date和Instant互相转换
         Date date = Date.from(Instant.now());
         Instant instant = date.toInstant();
+        long l = instant.toEpochMilli();
 
         // Date转换成LocalDateTime
         Instant instant2 = new Date().toInstant();
@@ -176,6 +178,38 @@ public class TestDate {
         // LocalDate转Date
         Instant instant3 = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant();
         Date date2 = Date.from(instant3);
+
+    }
+
+
+    /**
+     * 使用新版时间日期api最佳实践
+     */
+    @Test
+    public void test9() {
+
+        // LocalDate转时间戳
+        long l = LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        System.out.println(l);
+
+
+        // 时间戳 转 LocalDateTime(LocalDate And LocalTime)
+        long timeStamp = System.currentTimeMillis();
+        ZonedDateTime zonedDateTime = Instant.ofEpochMilli(timeStamp)
+                .atZone(ZoneId.systemDefault());
+        LocalDate localDate = zonedDateTime.toLocalDate();
+        LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
+        LocalTime localTime = zonedDateTime.toLocalTime();
+        System.out.println(localDate);
+        System.out.println(localDateTime);
+        System.out.println(localTime);
+
+
+        LocalDate now = LocalDate.now().plusDays(1);
+        boolean after = now.isAfter(LocalDate.now());
+        System.out.println(after);
+
+        
 
     }
 }
