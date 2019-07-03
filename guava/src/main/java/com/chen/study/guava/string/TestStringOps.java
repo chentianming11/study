@@ -1,10 +1,17 @@
 package com.chen.study.guava.string;
 
-import com.google.common.base.*;
+import com.google.common.base.CaseFormat;
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
+import strman.Strman;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 字符串处理
@@ -19,15 +26,38 @@ public class TestStringOps {
      * 测试连接器-Joiner
      */
     @Test
-    public void testJoiner() {
+    public void testJoiner() throws IOException {
         // 连接器，
-        List<String> list = Arrays.asList("a", null, "b", "c");
+        List<String> list = Arrays.asList("a", null, "b", "c", "d", "f");
         // 跳过null
-        String s = Joiner.on(",").skipNulls().join(list);
+        String s = Joiner.on(",")
+                .skipNulls()
+                .join(list);
         System.out.println(s);
+
+
         // 给定某个字符串来替换 null
-        String s2 = Joiner.on(",").useForNull("zzz").join(list);
+        String s2 = Joiner.on(",")
+                .useForNull("zzz")
+                .join(list);
         System.out.println(s2);
+
+
+        // 连接map
+        Map<String, Object>  map = ImmutableMap.of("a", 100, "b", 200);
+        String s3 = Joiner.on(",")
+                .withKeyValueSeparator("-")
+                .join(map);
+
+        System.out.println(s3);
+
+
+        // 连接的内容置入到stringBuffer
+        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer buffer = Joiner.on(",")
+                .skipNulls()
+                .appendTo(stringBuffer, list);
+        System.out.println(buffer);
 
     }
 
@@ -37,19 +67,43 @@ public class TestStringOps {
     @Test
     public void testSplitter() {
 
+        String split = "#foo;bar;;  ; qux;";
+
+        // 按分隔符进行拆分
         List<String> list = Splitter.on(";")
+                // 移除指定的首尾指定的字符
+//                .trimResults(CharMatcher.is('#'))
                 //移除结果字符串的前导空白和尾部空白
                 .trimResults()
                 // 从结果中自动忽略空字符串
                 .omitEmptyStrings()
                 // 限制拆分出的字符串数量
                 .limit(10)
-                .splitToList("foo;bar;;  ; qux;");
+                .splitToList(split);
         System.out.println(list);
 
+
+
+
         // 按字符长度进行拆分
-        List<String> list1 = Splitter.fixedLength(3).splitToList("阿大放送dsafasf阿斯顿发");
+        List<String> list1 = Splitter
+                .fixedLength(3)
+                .splitToList("阿大放送dsafasf阿斯顿发");
         System.out.println(list1);
+
+
+        // 正则拆分
+        List<String> list2 = Splitter.onPattern("\\n")
+                .splitToList("abc\nzxc\ndfg");
+        System.out.println(list2);
+
+
+        // 拆分成一个map
+        Map<String, String> map = Splitter.on(",")
+                .withKeyValueSeparator("-")
+                .split("a-100,b-200");
+        System.out.println(map);
+
     }
 
     /**
@@ -90,6 +144,28 @@ public class TestStringOps {
         // userName -> USER_NAME
         String userName2 = CaseFormat.LOWER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, "userName");
         System.out.println(userName2);
+
+
+        /**
+         * 我用下面的方式转
+         */
+
+        // 字符串转成驼峰  isTest
+        String is_emp_test = Strman.toCamelCase("IS_test".toLowerCase());
+        System.out.println(is_emp_test);
+
+        // 字符串转羊肉串（中杆）  is-test
+        String isTest = Strman.toKebabCase("isTest");
+        System.out.println(isTest);
+
+        // 字符串转蛇型（下划线） is_test
+        String s = Strman.toSnakeCase("isTest");
+        System.out.println(s);
+
+        // 字符串转大驼峰式  IsTest
+        String studlyCase = Strman.toStudlyCase("is_test");
+        System.out.println(studlyCase);
+
 
 
     }

@@ -69,8 +69,7 @@ public class LocalDateUtil {
     }
 
     public static LocalDate fromEpochMilli(long epochMilli) {
-        LocalDate localDate = Instant.ofEpochMilli(epochMilli).atZone(ZoneId.systemDefault()).toLocalDate();
-        return localDate;
+        return Instant.ofEpochMilli(epochMilli).atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
 }

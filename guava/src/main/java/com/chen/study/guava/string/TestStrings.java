@@ -13,7 +13,6 @@ public class TestStrings {
         // 获取2个字符串共同的前缀
         String commonPrefix = Strings.commonPrefix("aaacc", "aabbb");
         System.out.println("共同的前缀：" + commonPrefix);
-
         // 获取2个字符串共同的后缀
         System.out.println(Strings.commonSuffix("chentianming", "wangtidsaming"));
         // 将“”空字符串转换成null

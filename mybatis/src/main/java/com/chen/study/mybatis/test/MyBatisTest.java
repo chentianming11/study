@@ -1,4 +1,4 @@
-package com.chen.study.mybatis.sample;
+package com.chen.study.mybatis.test;
 
 import com.chen.study.mybatis.entity.Blog;
 import com.chen.study.mybatis.entity.Comment;
@@ -104,7 +104,7 @@ public class MyBatisTest {
         try {
             BlogMapper mapper = session.getMapper(BlogMapper.class);
             Blog queryBean = new Blog();
-            queryBean.setName("区别");
+            queryBean.setName("测试插入");
             List<Blog> blog = mapper.selectBlogByBean(queryBean);
             System.out.println("查询结果："+blog);
         } finally {

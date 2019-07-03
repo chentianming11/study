@@ -1,5 +1,6 @@
 package com.chen.study.custom.util.core;
 
+import lombok.experimental.UtilityClass;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -24,10 +25,8 @@ import java.util.function.Function;
  * @author 陈添明
  * @date 2018/10/11
  */
-
-public final class ExcelUtils {
-
-    private ExcelUtils(){}
+@UtilityClass
+public class ExcelUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExcelUtils.class);
 

@@ -1,4 +1,4 @@
-package com.chen.study.mybatis.sample;
+package com.chen.study.mybatis.test;
 
 import com.chen.study.mybatis.entity.Blog;
 import org.junit.Test;
