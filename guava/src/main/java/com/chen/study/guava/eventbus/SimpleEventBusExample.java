@@ -50,17 +50,20 @@ public class SimpleEventBusExample {
         eventBus.register(new SimpleListener());
 
         // 发送一个事件
-        System.out.println(Thread.currentThread().getName() + "发送第一个");
+//        System.out.println(Thread.currentThread().getName() + "发送第一个");
         eventBus.post("我来了");
 
-        System.out.println(Thread.currentThread().getName() + "发送第二个");
-        eventBus.post("我来了");
 
-        System.out.println(Thread.currentThread().getName() + "发送第三个");
-        eventBus.post("我来了");
+        System.out.println("执行完成啊啊啊啊");
 
-        System.out.println(Thread.currentThread().getName() + "发送第四个");
-        eventBus.post("我来了");
+//        System.out.println(Thread.currentThread().getName() + "发送第二个");
+//        eventBus.post("我来了");
+//
+//        System.out.println(Thread.currentThread().getName() + "发送第三个");
+//        eventBus.post("我来了");
+//
+//        System.out.println(Thread.currentThread().getName() + "发送第四个");
+//        eventBus.post("我来了");
 
 
 

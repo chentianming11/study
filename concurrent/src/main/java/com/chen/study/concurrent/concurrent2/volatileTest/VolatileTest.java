@@ -6,36 +6,23 @@ package com.chen.study.concurrent.concurrent2.volatileTest;
  */
 public class VolatileTest {
 
-    private static int INIT_VALUE = 0;
-    private static int MAX_LIMIT = 5;
+    /**
+     * 如果不使用volatile，程序不会停止
+     */
+    public volatile static boolean stop = false;
 
-    public static void main(String[] args) throws InterruptedException {
-        new Thread(() -> {
-            int localValue = INIT_VALUE;
-            while (localValue < MAX_LIMIT){
-                if (localValue != INIT_VALUE){
-                    System.out.printf("数值更新到到[%d]\n", INIT_VALUE);
-                    localValue = INIT_VALUE;
-                }
+    public static void main(String[] args) throws
+            InterruptedException {
+        Thread thread = new Thread(() -> {
+            int i = 0;
+            while (!stop) {
+                i++;
             }
-        }, "reader").start();
-
-
-        Thread.sleep(100);
-
-
-        new Thread(() -> {
-            int localValue = INIT_VALUE;
-            while (localValue < MAX_LIMIT){
-                INIT_VALUE = ++localValue;
-                System.out.printf("更新数值到[%d]\n", INIT_VALUE);
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, "updater").start();
-
+        });
+        thread.start();
+        System.out.println("begin start thread");
+        Thread.sleep(1000);
+        stop = true;
+        thread.join();
     }
 }

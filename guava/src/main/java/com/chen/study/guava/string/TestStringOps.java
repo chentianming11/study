@@ -53,11 +53,12 @@ public class TestStringOps {
 
 
         // 连接的内容置入到stringBuffer
-        StringBuffer stringBuffer = new StringBuffer();
-        StringBuffer buffer = Joiner.on(",")
+        StringBuffer stringBuffer = new StringBuffer().append("max(");
+        Joiner.on(",")
                 .skipNulls()
                 .appendTo(stringBuffer, list);
-        System.out.println(buffer);
+        stringBuffer.append(")");
+        System.out.println(stringBuffer);
 
     }
 
@@ -104,6 +105,14 @@ public class TestStringOps {
                 .split("a-100,b-200");
         System.out.println(map);
 
+
+
+        // 拆分成一个map
+        Map<String, String> map2 = Splitter.onPattern("&")
+                .withKeyValueSeparator("=")
+                .split("a=1&b=2&c=3&d=");
+        System.out.println(map2);
+
     }
 
     /**
@@ -149,7 +158,6 @@ public class TestStringOps {
         /**
          * 我用下面的方式转
          */
-
         // 字符串转成驼峰  isTest
         String is_emp_test = Strman.toCamelCase("IS_test".toLowerCase());
         System.out.println(is_emp_test);
@@ -165,8 +173,6 @@ public class TestStringOps {
         // 字符串转大驼峰式  IsTest
         String studlyCase = Strman.toStudlyCase("is_test");
         System.out.println(studlyCase);
-
-
 
     }
 

@@ -1,6 +1,5 @@
 package com.chen.study.guava.eventbus.listener;
 
-import com.google.common.eventbus.AllowConcurrentEvents;
 import com.google.common.eventbus.Subscribe;
 
 /**
@@ -17,28 +16,29 @@ public class SimpleListener {
      * @param event
      */
     @Subscribe
-    @AllowConcurrentEvents
+//    @AllowConcurrentEvents
     public void doAction(String event){
-        System.out.println("处理器1：" + event);
-        try {
-            Thread.sleep(2_000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(Thread.currentThread().getName() + "处理其1 完成");
+        throw new RuntimeException("异常来了吗啊");
+//        System.out.println("处理器1：" + event);
+//        try {
+//            Thread.sleep(2_000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(Thread.currentThread().getName() + "处理其1 完成");
 
     }
 
 
     @Subscribe
-    @AllowConcurrentEvents
+//    @AllowConcurrentEvents
     public void doAction2(String event){
         System.out.println("处理器2：" + event);
-        try {
-            Thread.sleep(10_000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10_000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         System.out.println(Thread.currentThread().getName() + "处理2完成");
 
     }
