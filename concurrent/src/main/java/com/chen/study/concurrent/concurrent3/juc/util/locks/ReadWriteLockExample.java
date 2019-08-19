@@ -2,6 +2,8 @@ package com.chen.study.concurrent.concurrent3.juc.util.locks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
@@ -19,12 +21,17 @@ public class ReadWriteLockExample {
 
     private static List<Long> data = new ArrayList<>();
 
-    public static void main(String[] args) throws InterruptedException {
-        Thread t1 = new Thread(() -> write());
-        t1.start();
-        Thread.sleep(10);
-        Thread t2 = new Thread(() -> read());
-        t2.start();
+    public static void main(String[] args) {
+        /**
+         * 显示线程饥饿问题  读很多导致写很难执行
+         */
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        executorService.execute(ReadWriteLockExample::read);
+        executorService.execute(ReadWriteLockExample::write);
+        for (int i = 0; i < 100; i++) {
+            executorService.execute(ReadWriteLockExample::read);
+        }
+
     }
 
     public static void write(){
@@ -32,7 +39,8 @@ public class ReadWriteLockExample {
             // 写锁
             writeLock.lock();
             data.add(System.currentTimeMillis());
-            Thread.sleep(5_000);
+            System.out.println("-------- write finish ----------");
+            Thread.sleep(2_000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -44,9 +52,9 @@ public class ReadWriteLockExample {
         try {
             // 读锁
             readLock.lock();
-            System.out.println(Thread.currentThread().getName() + "===========");
+            System.out.println(Thread.currentThread().getName() + "======read start=====");
             data.forEach(System.out::println);
-            System.out.println(Thread.currentThread().getName() + "===========");
+            System.out.println(Thread.currentThread().getName() + "=======read end====");
             Thread.sleep(4_000);
         } catch (InterruptedException e) {
             e.printStackTrace();
