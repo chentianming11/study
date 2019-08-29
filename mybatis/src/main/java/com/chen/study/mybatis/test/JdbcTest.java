@@ -29,6 +29,7 @@ public class JdbcTest {
             String sql = "SELECT bid, name, author_id FROM blog";
             ResultSet rs = stmt.executeQuery(sql);
 
+
             // 获取结果集
             while (rs.next()) {
                 Integer bid = rs.getInt("bid");
