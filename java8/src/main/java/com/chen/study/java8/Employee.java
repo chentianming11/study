@@ -17,4 +17,10 @@ public class Employee {
     private int age;
     private double salary;
     private Address address;
+
+    public Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
 }

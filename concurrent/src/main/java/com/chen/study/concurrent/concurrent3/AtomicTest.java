@@ -89,4 +89,9 @@ public class AtomicTest {
         System.out.println(i);
     }
 
+    @Test
+    public void test() {
+        System.out.println(16 >>> 2);
+    }
+
 }
