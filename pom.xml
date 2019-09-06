@@ -19,6 +19,7 @@
         <module>java8</module>
         <module>zookeeper</module>
         <module>mybatis</module>
+        <module>other</module>
     </modules>
 
 
