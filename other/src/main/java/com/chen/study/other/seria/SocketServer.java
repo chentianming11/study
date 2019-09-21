@@ -21,7 +21,6 @@ public class SocketServer {
             ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
             User user = (User) objectInputStream.readObject();
             System.out.println(user);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
