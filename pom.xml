@@ -20,6 +20,7 @@
         <module>zookeeper</module>
         <module>mybatis</module>
         <module>other</module>
+        <module>spring-boot</module>
     </modules>
 
 
