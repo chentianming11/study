@@ -1,0 +1,7 @@
+
+hello:
+  format:
+    info:
+      country: china
+      provice: shanghai
+      city: shanghai
