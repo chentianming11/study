@@ -11,6 +11,9 @@ import org.apache.curator.utils.CloseableUtils;
 import java.util.List;
 
 /**
+ * 参与选举的所有节点，会创建一个顺序节点，其中最小的 节点会设置为 master 节点, 没抢到 Leader 的节点都监听 前一个节点的删除事件，
+ * 在前一个节点删除后进行重新抢 主，当 master 节点手动调用 close()方法或者 master 节点挂了之后，后续的子节点会抢占 master。
+ 其中 spark 使用的就是这种方法
  * @author 陈添明
  * @date 2018/12/14
  */

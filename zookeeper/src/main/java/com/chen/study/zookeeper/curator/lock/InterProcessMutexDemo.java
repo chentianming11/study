@@ -39,6 +39,7 @@ public class InterProcessMutexDemo {
 
 
     /**
+     * 同一线程再次 acquire，首先判断当前的 映射表内(threadData)是否有该线程的锁信息，如果有 则原子+1，然后返回
      * 可重入互斥锁
      * 加锁执行
      * @param time
