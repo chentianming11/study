@@ -1,0 +1,23 @@
+
+pool:
+  default:
+     # \u6BCF\u4E2A\u8FDE\u63A5\u7684keep-alive\u65F6\u95F4
+     keepAliveSecond: 300
+     # \u6700\u5927\u7A7A\u95F2\u8FDE\u63A5\u6570
+     maxIdleConnections: 5
+  test:
+     # \u6BCF\u4E2A\u8FDE\u63A5\u7684keep-alive\u65F6\u95F4
+     keepAliveSecond: 300
+     # \u6700\u5927\u7A7A\u95F2\u8FDE\u63A5\u6570
+     maxIdleConnections: 5
+# \u662F\u5426\u542F\u7528 BodyCallAdapter\u9002\u914D\u5668
+enableBodyCallAdapter: true
+# \u662F\u5426\u542F\u7528 ResponseCallAdapter\u9002\u914D\u5668
+enableResponseCallAdapter: true
+# \u662F\u5426\u542F\u7528 Retrofit2Converter\u8F6C\u7801\u5668
+enableFastJsonConverter: true
+
+test:
+  baseUrl: http://localhost:8080/api/test/
+  accessKeyId: root
+  accessKeySecret: 123456
