@@ -22,6 +22,7 @@
         <module>other</module>
         <module>spring-boot</module>
         <module>dubbo</module>
+        <module>dubbo-boot</module>
     </modules>
 
 

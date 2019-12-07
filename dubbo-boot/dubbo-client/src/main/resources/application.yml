@@ -1,0 +1,8 @@
+
+# dubbo配置
+dubbo:
+  application:
+    name: springboot-dubbo-client
+
+  registry:
+    address: zookeeper://127.0.0.1:2181
