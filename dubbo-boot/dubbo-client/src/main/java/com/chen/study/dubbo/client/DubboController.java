@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/dubbo")
 public class DubboController {
 
-    @Reference
+    @Reference(mock = "com.chen.study.dubbo.client.SayHelloServiceMock", cluster = "failfast", timeout = 1)
     private ISayHelloService sayHelloService;
 
-    @GetMapping("/sayhello")
+    @GetMapping("/sayHello")
     public String sayHello() {
-        return sayHelloService.sayHello(); //我调用这个服务可能失败，如果失败了，我要怎么处理
+        //我调用这个服务可能失败，如果失败了，我要怎么处理
+        return sayHelloService.sayHello();
     }
 }
