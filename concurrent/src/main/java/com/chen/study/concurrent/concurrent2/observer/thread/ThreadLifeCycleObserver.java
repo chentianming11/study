@@ -1,8 +1,6 @@
 package com.chen.study.concurrent.concurrent2.observer.thread;
 
 
-import com.chen.study.custom.util.core.Is;
-
 import java.util.List;
 
 /**
@@ -14,7 +12,7 @@ public class ThreadLifeCycleObserver implements LifeCycleListener {
     private  final Object LOCK = new Object();
 
     public void concurrentQuery(List<String> ids){
-        if (Is.empty(ids)){
+        if (ids.isEmpty()) {
             return;
         }
 

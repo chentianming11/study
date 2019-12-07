@@ -131,10 +131,6 @@ public class TestStringOps {
         //用*号替换所有数字
         String s1 = CharMatcher.javaDigit().replaceFrom("我的手机号是13400001234", '*');
         System.out.println(s1);
-
-        // 只保留数字和小写字母
-        String s2 = CharMatcher.JAVA_DIGIT.or(CharMatcher.JAVA_LOWER_CASE).retainFrom("yutianran1314@gmail.COM");
-        System.out.println(s2);
     }
 
     /**

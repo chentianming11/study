@@ -1,8 +1,6 @@
 package com.chen.study.concurrent.concurrent2.suspension;
 
 
-import com.chen.study.custom.util.core.Is;
-
 import java.util.LinkedList;
 
 /**
@@ -15,7 +13,7 @@ public class RequestQueue {
 
     public Request getRequest(){
         synchronized (queue){
-            while (Is.empty(queue)){
+            while (queue.isEmpty()) {
                 try {
                     queue.wait();
                 } catch (InterruptedException e) {
