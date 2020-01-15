@@ -1,28 +1,53 @@
 package com.chen.study.java8.stream;
 
-import com.chen.study.java8.Address;
-import com.chen.study.java8.Employee;
-import com.google.common.collect.Lists;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
+ * 把几个小的list转换到一个大的list。
  * @author 陈添明
  * @date 2019/7/3
  */
 public class TestFlatMap {
 
-    public void test1() {
-        Employee employee = Employee.builder().name("测试").age(10).salary(1.1)
-                .address(new Address().setCity("上海").setProvince("上海").setCountry("中国"))
-                .build();
+    public static void main(String[] args) {
+        List<String> teamIndia = Arrays.asList("Virat", "Dhoni", "Jadeja");
+        List<String> teamAustralia = Arrays.asList("Warner", "Watson", "Smith");
+        List<String> teamEngland = Arrays.asList("Alex", "Bell", "Broad");
+        List<String> teamNewZeland = Arrays.asList("Kane", "Nathan", "Vettori");
+        List<String> teamSouthAfrica = Arrays.asList("AB", "Amla", "Faf");
+        List<String> teamWestIndies = Arrays.asList("Sammy", "Gayle", "Narine");
+        List<String> teamSriLanka = Arrays.asList("Mahela", "Sanga", "Dilshan");
+        List<String> teamPakistan = Arrays.asList("Misbah", "Afridi", "Shehzad");
 
-        Employee employee2 = Employee.builder().name("测试2").age(10).salary(1.1)
-                .address(new Address().setCity("上海2").setProvince("上海2").setCountry("中国2"))
-                .build();
+        List<List<String>> playersInWorldCup2016 = new ArrayList<>();
+        playersInWorldCup2016.add(teamIndia);
+        playersInWorldCup2016.add(teamAustralia);
+        playersInWorldCup2016.add(teamEngland);
+        playersInWorldCup2016.add(teamNewZeland);
+        playersInWorldCup2016.add(teamSouthAfrica);
+        playersInWorldCup2016.add(teamWestIndies);
+        playersInWorldCup2016.add(teamSriLanka);
+        playersInWorldCup2016.add(teamPakistan);
 
-        List<Employee> list = Lists.newArrayList(employee, employee2);
 
+        // Let's print all players before Java 8
+        List<String> listOfAllPlayers = new ArrayList<>();
 
+        for (List<String> team : playersInWorldCup2016) {
+            listOfAllPlayers.addAll(team);
+        }
+        System.out.println("Players playing in world cup 2016");
+        System.out.println(listOfAllPlayers);
+
+        // Now let's do this in Java 8 using FlatMap
+        List<String> flatMapList = playersInWorldCup2016.stream()
+                .flatMap(pList -> pList.stream())
+                .collect(Collectors.toList());
+
+        System.out.println("List of all Players using Java 8");
+        System.out.println(flatMapList);
     }
 }
