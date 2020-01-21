@@ -33,7 +33,7 @@
         <dubbo.version>2.7.2</dubbo.version>
         <dubbo-starter.version>2.7.1</dubbo-starter.version>
         <curator.version>2.12.0</curator.version>
-        <spring.version>5.1.3.RELEASE</spring.version>
+        <spring.version>5.2.3.RELEASE</spring.version>
         <guava.version>27.0.1-jre</guava.version>
         <mysql-connector.version>8.0.15</mysql-connector.version>
         <mybatis.version>3.5.1</mybatis.version>
