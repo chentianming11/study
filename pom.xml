@@ -53,6 +53,7 @@
         <bean-util.version>1.9.3</bean-util.version>
         <common-io.version>2.6</common-io.version>
         <kafka-clients.version>2.0.0</kafka-clients.version>
+        <protostuff.version>1.5.4</protostuff.version>
     </properties>
 
     <!--通用依赖-->
@@ -313,6 +314,16 @@
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
                 <version>${kafka-clients.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${protostuff.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${protostuff.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

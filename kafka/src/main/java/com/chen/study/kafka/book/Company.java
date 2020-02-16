@@ -1,4 +1,4 @@
-package com.chen.study.kafka.book.producer.serializer;
+package com.chen.study.kafka.book;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

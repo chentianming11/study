@@ -1,5 +1,6 @@
 package com.chen.study.kafka.book.producer.serializer;
 
+import com.chen.study.kafka.book.Company;
 import org.apache.kafka.common.serialization.Serializer;
 
 import java.io.UnsupportedEncodingException;
