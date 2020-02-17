@@ -1,4 +1,4 @@
-package com.chen.study.kafka.book.consumer;
+package com.chen.study.kafka.book.consumer.offset;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -7,15 +7,15 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author 陈添明
- * @date 2020/2/16
+ * @date 2020/2/17
  */
-public class KafkaConsumerAnalysis {
+public class ManualCommitOffsetDemo {
+
 
     /**
      * kafka集群地址
@@ -31,45 +31,19 @@ public class KafkaConsumerAnalysis {
         Properties props = initConfig();
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 
-        /**
-         * 消费者不仅可以通过KafkaConsumer.subscribe()方法订阅主题，还可以直接订阅某些主题的 特定分区，在KafkaConsumer中还提供了一个 assign()方法来实现这些功能
-         */
-        consumer.subscribe(Arrays.asList(topic));
-        // consumer.assign(Arrays.asList(new TopicPartition("topic-demo", 0)));
-
-        /**
-         * 通过pa rtitionFor()方法的协助，我们可以通过ass ig顶)方法来实现订阅主题(全部分区)的 功能
-         */
-        /*List<TopicPartition> partitions = new ArrayList<>();
-        List<PartitionInfo> partitionInfos = consumer.partitionsFor(topic);
-        if (partitionInfos != null) {
-            for (PartitionInfo tpInfo : partitionInfos) {
-                partitions.add(new TopicPartition(tpInfo.topic(), tpInfo.partition()));
-                consumer.assign(partitions);
-            }
-        }*/
-
         try {
 
             while (isRunning.get()) {
+                /**
+                 * 每次拉取后手动提交
+                 */
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
                 for (ConsumerRecord<String, String> record : records) {
-                    System.out.println("topic =" + record.topic()
-                            + ", partition = " + record.partition()
-                            + ", offset=" + record.offset());
-
-                    System.out.println("key =" + record.key()
-                            + ", value=" + record.value());
-
-                    //do some thing to process record.
+                    // do something
                 }
 
-                /*for (TopicPartition tp : records.partitions()) {
-                    List<ConsumerRecord<String, String>> recordList = records.records(tp);
-                    for (ConsumerRecord<String, String> record : recordList) {
-                        System.out.println(record.partition() + " : " + record.value());
-                    }
-                }*/
+                // commitSync()方法会根据 poll()方法拉取的最新位移来进行提交(注意提交的值对应于图 3-6 中 position 的位置〉
+                consumer.commitSync();
             }
 
         } catch (Exception e) {
@@ -87,7 +61,8 @@ public class KafkaConsumerAnalysis {
         //设置消货组的名称，具体的释义可以参见第 3 幸
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         properties.put(ConsumerConfig.CLIENT_ID_CONFIG, "consumer.client.id.demo");
-
+        // 关闭自动提交
+        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
         return properties;
     }
 }
