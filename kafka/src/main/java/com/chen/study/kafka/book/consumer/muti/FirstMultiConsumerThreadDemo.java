@@ -1,4 +1,4 @@
-package com.chen.study.kafka.book.consumer.offset;
+package com.chen.study.kafka.book.consumer.muti;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -7,14 +7,14 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author 陈添明
- * @date 2020/2/17
+ * @date 2020/2/22
  */
-public class ManualCommitOffsetDemo {
+public class FirstMultiConsumerThreadDemo {
 
 
     /**
@@ -24,34 +24,40 @@ public class ManualCommitOffsetDemo {
     public static final String topic = "topic-demo";
     private static final String groupId = "group.demo";
 
-    public static final AtomicBoolean isRunning = new AtomicBoolean(true);
-
 
     public static void main(String[] args) {
         Properties props = initConfig();
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-
-        try {
-
-            while (isRunning.get()) {
-                /**
-                 * 每次拉取后手动提交
-                 */
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
-                for (ConsumerRecord<String, String> record : records) {
-                    // do something
-                }
-
-                // commitSync()方法会根据 poll()方法拉取的最新位移来进行提交(注意提交的值对应于图 3-6 中 position 的位置〉
-                consumer.commitSync();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            consumer.close();
+        int consumerThreadNum = 4;
+        for (int i = 0; i < consumerThreadNum; i++) {
+            new KafkaConsumerThread(props, topic).start();
         }
     }
+
+    public static class KafkaConsumerThread extends Thread {
+        private KafkaConsumer<String, String> kafkaConsumer;
+
+
+        public KafkaConsumerThread(Properties props, String topic) {
+            this.kafkaConsumer = new KafkaConsumer<>(props);
+            kafkaConsumer.subscribe(Arrays.asList(topic));
+        }
+
+
+        @Override
+        public void run() {
+            try {
+                while (true) {
+                    ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(1000));
+                    for (ConsumerRecord<String, String> record : records) {
+                        // 处理消息模块
+                    }
+                }
+            } finally {
+                kafkaConsumer.close();
+            }
+        }
+    }
+
 
     private static Properties initConfig() {
         Properties properties = new Properties();
@@ -61,8 +67,7 @@ public class ManualCommitOffsetDemo {
         //设置消货组的名称，具体的释义可以参见第 3 幸
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         properties.put(ConsumerConfig.CLIENT_ID_CONFIG, "consumer.client.id.demo");
-        // 关闭自动提交
-        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+
         return properties;
     }
 }

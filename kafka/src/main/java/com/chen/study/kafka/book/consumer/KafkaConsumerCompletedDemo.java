@@ -1,23 +1,19 @@
-package com.chen.study.kafka.book.consumer.offset;
+package com.chen.study.kafka.book.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.errors.WakeupException;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author 陈添明
- * @date 2020/2/17
+ * @date 2020/2/16
  */
-public class ManualBatchCommitOffsetDemo {
-
+public class KafkaConsumerCompletedDemo {
 
     /**
      * kafka集群地址
@@ -32,32 +28,24 @@ public class ManualBatchCommitOffsetDemo {
     public static void main(String[] args) {
         Properties props = initConfig();
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-
+        consumer.subscribe(Arrays.asList(topic));
         try {
-
-            /**
-             * 批量处理+批量提交
-             */
-            final int minBatchSize = 200;
-            List<ConsumerRecord> buffer = new ArrayList<>();
             while (isRunning.get()) {
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
-                for (ConsumerRecord<String, String> record : records) {
-                    buffer.add(record);
-                }
-                if (buffer.size() >= minBatchSize) {
-                    // 其它处理
-                    consumer.commitSync();
-                    buffer.clear();
-                }
+                //consumer .poll(***)
+                //process the record .
+                //commit offset .
             }
-
-
+        } catch (WakeupException e) {
+            // WakeupException只是为了跳出循环的，不需要处理
         } catch (Exception e) {
+            // do some logic process.
             e.printStackTrace();
         } finally {
+            // maybe commit offset.
             consumer.close();
         }
+
+        // 当关闭这个消费逻辑的时候，可以调用 consumer.wakeup()，也可以调用 isRunning.set(false)。
     }
 
     private static Properties initConfig() {
@@ -68,8 +56,7 @@ public class ManualBatchCommitOffsetDemo {
         //设置消货组的名称，具体的释义可以参见第 3 幸
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         properties.put(ConsumerConfig.CLIENT_ID_CONFIG, "consumer.client.id.demo");
-        // 关闭自动提交
-        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+
         return properties;
     }
 }
