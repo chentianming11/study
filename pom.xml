@@ -23,6 +23,7 @@
         <module>dubbo</module>
         <module>dubbo-boot</module>
         <module>kafka</module>
+        <module>quartz</module>
     </modules>
 
     <properties>
@@ -54,6 +55,7 @@
         <common-io.version>2.6</common-io.version>
         <kafka-clients.version>2.0.0</kafka-clients.version>
         <protostuff.version>1.5.4</protostuff.version>
+        <quartz.version>2.3.0</quartz.version>
     </properties>
 
     <!--通用依赖-->
@@ -329,6 +331,12 @@
                 <groupId>io.protostuff</groupId>
                 <artifactId>protostuff-runtime</artifactId>
                 <version>${protostuff.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
