@@ -22,7 +22,7 @@
 
 　　　　2）Project Structure —— Modules 的Language Level为 8
 
-　　测试类主要在 test/java/com.gupaoedu.com中。
+　　测试类主要在 test/java/com.chen.study.web.com中。
 
 
 

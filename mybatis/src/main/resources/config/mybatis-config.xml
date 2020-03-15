@@ -36,10 +36,10 @@
     </objectFactory>-->
 
 <!--    <plugins>
-        <plugin interceptor="com.gupaoedu.interceptor.SQLInterceptor">
+        <plugin interceptor="com.chen.study.web.interceptor.SQLInterceptor">
             <property name="gupao" value="betterme" />
         </plugin>
-        <plugin interceptor="com.gupaoedu.interceptor.MyPageInterceptor">
+        <plugin interceptor="com.chen.study.web.interceptor.MyPageInterceptor">
         </plugin>
     </plugins>-->
 
