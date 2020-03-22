@@ -22,5 +22,6 @@ public class ClassTest {
     public void testIsAssignableFrom() {
         System.out.println(Father.class.isAssignableFrom(Son.class)); // true
         System.out.println(Son.class.isAssignableFrom(Son.class)); // true
+        System.out.println(Son.class.isAssignableFrom(Father.class)); // false
     }
 }
