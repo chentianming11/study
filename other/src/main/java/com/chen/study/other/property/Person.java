@@ -16,4 +16,8 @@ public class Person {
     private String name;
 
     private Integer age;
+
+    private Long jobId;
+
+    private String nikeName;
 }
