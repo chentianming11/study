@@ -38,7 +38,7 @@
         <curator.version>2.12.0</curator.version>
         <spring.version>5.2.3.RELEASE</spring.version>
         <guava.version>27.0.1-jre</guava.version>
-        <mysql-connector.version>8.0.15</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <mybatis.version>3.5.1</mybatis.version>
         <c3p0.version>0.9.5.4</c3p0.version>
         <mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
