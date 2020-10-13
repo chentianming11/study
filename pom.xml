@@ -30,7 +30,7 @@
 
     <properties>
         <lombok.version>1.16.10</lombok.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
         <quartz.version>2.3.1</quartz.version>
         <dubbo.version>2.7.2</dubbo.version>
