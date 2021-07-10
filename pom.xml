@@ -30,15 +30,15 @@
 
     <properties>
         <lombok.version>1.16.10</lombok.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <spring-boot.version>2.1.1.RELEASE</spring-boot.version>
-        <quartz.version>2.3.1</quartz.version>
+        <quartz.version>2.3.2</quartz.version>
         <dubbo.version>2.7.2</dubbo.version>
         <dubbo-starter.version>2.7.1</dubbo-starter.version>
         <curator.version>2.12.0</curator.version>
         <spring.version>5.2.3.RELEASE</spring.version>
         <guava.version>27.0.1-jre</guava.version>
-        <mysql-connector.version>8.0.15</mysql-connector.version>
+        <mysql-connector.version>8.0.16</mysql-connector.version>
         <mybatis.version>3.5.1</mybatis.version>
         <c3p0.version>0.9.5.4</c3p0.version>
         <mybatis-redis.version>1.0.0-beta2</mybatis-redis.version>
@@ -54,7 +54,7 @@
         <servlet-api.version>3.1.0</servlet-api.version>
         <aspectj.version>1.8.6</aspectj.version>
         <fastjson.version>1.2.58</fastjson.version>
-        <bean-util.version>1.9.3</bean-util.version>
+        <bean-util.version>1.9.4</bean-util.version>
         <common-io.version>2.6</common-io.version>
         <kafka-clients.version>2.0.0</kafka-clients.version>
         <protostuff.version>1.5.4</protostuff.version>
