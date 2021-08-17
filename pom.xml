@@ -51,7 +51,7 @@
         <aspectj.version>1.8.6</aspectj.version>
         <fastjson.version>1.2.58</fastjson.version>
         <bean-util.version>1.9.4</bean-util.version>
-        <common-io.version>2.6</common-io.version>
+        <common-io.version>2.7</common-io.version>
         <kafka-clients.version>2.0.0</kafka-clients.version>
         <protostuff.version>1.5.4</protostuff.version>
         <quartz.version>2.3.0</quartz.version>
