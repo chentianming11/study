@@ -1,0 +1,8 @@
+com/chen/study/format/starter/autoconfiguration/FormatAutoConfiguration.class
+com/chen/study/format/starter/format/JsonFormatProcessor.class
+META-INF/spring-configuration-metadata.json
+com/chen/study/format/starter/autoconfiguration/HelloProperties.class
+com/chen/study/format/starter/format/StringFormatProcessor.class
+com/chen/study/format/starter/format/FormatProcessor.class
+com/chen/study/format/starter/autoconfiguration/HelloAutoConfiguration.class
+com/chen/study/format/starter/HelloFormatTemplate.class

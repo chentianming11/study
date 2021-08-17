@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "hello.format",
+      "type": "com.chen.study.format.starter.autoconfiguration.HelloProperties",
+      "sourceType": "com.chen.study.format.starter.autoconfiguration.HelloProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "hello.format.info",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.chen.study.format.starter.autoconfiguration.HelloProperties"
+    }
+  ],
+  "hints": []
+}

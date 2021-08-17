@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="knight" class="com.chen.spring.action.c1.knights.BraveKnight">
-    <constructor-arg ref="quest" />
-  </bean>
+    <bean id="knight" class="com.chen.spring.action.c1.knights.BraveKnight">
+        <constructor-arg ref="quest"/>
+    </bean>
 
-  <bean id="quest" class="com.chen.spring.action.c1.knights.SlayDragonQuest">
-    <constructor-arg value="#{T(System).out}" />
-  </bean>
+    <bean id="quest" class="com.chen.spring.action.c1.knights.SlayDragonQuest">
+        <constructor-arg value="#{T(System).out}"/>
+    </bean>
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="mapperLocation" value="classpath:mapper/*.xml"></property>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.github.chentianming11.mybatis"/>
+    </bean>
 
 </beans>
