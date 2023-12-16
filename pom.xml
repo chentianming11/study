@@ -22,6 +22,7 @@
         <module>quartz</module>
         <module>boot-web</module>
         <module>jvm</module>
+        <module>jmockit</module>
     </modules>
 
     <properties>
